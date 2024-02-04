@@ -129,6 +129,33 @@ class linkedList {
     string = string.concat("null");
     return string;
   }
+  insertAt(value, index) {
+    let temp = this.listHead;
+    let nodeNumber = 0;
+    while (temp != null) {
+      if (index == nodeNumber) {
+        const holder = { ...temp };
+        temp.value = value;
+        temp.nextNode = holder;
+        return;
+      }
+      temp = temp.nextNode;
+      nodeNumber++;
+    }
+  }
+  removeAt(index) {
+    let temp = this.listHead;
+    let nodeNumber = 0;
+    while (temp != null) {
+      if (index == nodeNumber + 1) {
+        const holder = { ...temp.nextNode.nextNode };
+        temp.nextNode = holder;
+        return;
+      }
+      temp = temp.nextNode;
+      nodeNumber++;
+    }
+  }
 }
 
 const list = new linkedList();
@@ -136,5 +163,7 @@ list.append("poop");
 list.append("poop2");
 list.append("poop3");
 list.prepend("poop0");
+list.insertAt("new poop", 1);
+list.removeAt(3);
 console.log(list.toString());
 console.log(list);
