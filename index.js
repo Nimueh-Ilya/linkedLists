@@ -157,13 +157,3 @@ class linkedList {
     }
   }
 }
-
-const list = new linkedList();
-list.append("poop");
-list.append("poop2");
-list.append("poop3");
-list.prepend("poop0");
-list.insertAt("new poop", 1);
-list.removeAt(3);
-console.log(list.toString());
-console.log(list);
